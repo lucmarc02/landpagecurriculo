@@ -78,7 +78,7 @@ export default function Navbar() {
             <div className="banner-overlay"></div>
           </div>
           
-          {/* Conteúdo do perfil sobre o banner */}
+          {/* Conteúdo do perfil sobre o banner - ESTRUTURA OTIMIZADA PARA MOBILE */}
           <div className="nav-profile-overlay">
             <div className="nav-profile">
               <div className="profile-image-wrapper">

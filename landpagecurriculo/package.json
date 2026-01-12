@@ -1,10 +1,9 @@
 {
-  "homepage": "https://lucmarc02.github.io/landpagecurriculo/landpagecurriculo/",
+  "homepage": "https://lucmarc02.github.io/landpagecurriculo",
   "name": "landpagecurriculo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://lucmarc02.github.io/landpagecurriculo",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

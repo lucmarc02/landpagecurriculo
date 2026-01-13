@@ -1,4 +1,13 @@
 export default function Main() {
+  const CERTIFICADOPOS_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1gkwEaosxgo7azFgOvRk5NZVDnRuJ1ymk/view?usp=sharing";
+  const DIPLOMATECNICO_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/18nQb5X3U5DPurQjIPlXpbOtdVB24QqHj/view?usp=sharing";
+  const DIPLOMASUPERIOR_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1Igf1MpuhEcOoO1hz_1XZw_lJY_se8-S2/view?usp=sharing";
+  const CERTIFICADOREACT_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1xGsfm0KtD4AzkUVkdWaYqUI9Vp60yXK8/view?usp=sharing";
+  const CERTIFICADOJAVASPRI_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/10nU1vV-Vc6lRrzRqrEiEFgx7nyldFUtu/view?usp=sharing";
+  const CERTIFICADOGENEXUS_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/10qZy2OVo7YjMPRLJVUOgFubkSKbi9Axe/view?usp=sharing";
+  const CERTIFICADOSRP_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1jVIfeaiohxO_Jrah0iqWzv9QSAeKOiOs/view?usp=sharing";
+  const CERTIFICADOIBGESPCOMP_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1AIwqiS57TvclkYOTeHglZ6MnXv7M8K0d/view?usp=sharing";
+  
   return (
     <main className="main-content">
       {/* Objetivo Profissional */}
@@ -70,6 +79,34 @@ export default function Main() {
           <div className="education-details">
             <span className="education-institution">UNOPAR</span>
             <span className="education-year">2022</span>
+            <a 
+              href={CERTIFICADOPOS_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Certificado pós (PDF)</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="education-item">
+          <h3 className="education-course">Técnico desenvolvimento de sistemas</h3>
+          <div className="education-details">
+            <span className="education-institution">ETEC - Escola Técnica Estadual de São Paulo</span>
+            <span className="education-year">2022</span>
+            <a 
+              href={DIPLOMATECNICO_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Diploma técnico (PDF)</span>
+            </a>
           </div>
         </div>
 
@@ -78,6 +115,16 @@ export default function Main() {
           <div className="education-details">
             <span className="education-institution">Faculdade Objetivo</span>
             <span className="education-year">2009</span>
+            <a 
+              href={DIPLOMASUPERIOR_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Diploma graduação (PDF)</span>
+            </a>
           </div>
         </div>
       </section>
@@ -162,32 +209,95 @@ export default function Main() {
         
         <div className="courses-container">
           <div className="course-item">
-            <span className="course-name">Programação Full-Stack Javascript</span>
-            <span className="course-year">2025</span>
+            <div className="course-info">
+              <span className="course-name">Programação Full-Stack Javascript</span>
+              <span className="course-year">2026</span>
+            </div>
+            <a 
+              href={CERTIFICADOREACT_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Certificado (PDF)</span>
+            </a>
           </div>
+
           <div className="course-item">
-            <span className="course-name">Genexus Core - Desenvolvimento Low Code em Java</span>
-            <span className="course-year">2023 (Fundação Fat)</span>
+            <div className="course-info">
+              <span className="course-name">Genexus Core - Desenvolvimento Low Code em Java</span>
+              <span className="course-year">2023 (Fundação Fat)</span>
+            </div>
+            <a 
+              href={CERTIFICADOGENEXUS_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Certificado (PDF)</span>
+            </a>
           </div>
+
           <div className="course-item">
-            <span className="course-name">Curso Java Full Stack com Spring e Angular</span>
-            <span className="course-year">2023 (3way)</span>
+            <div className="course-info">
+              <span className="course-name">Curso Java Full Stack com Spring e Angular</span>
+              <span className="course-year">2023 (3way)</span>
+            </div>
+            <a 
+              href={CERTIFICADOJAVASPRI_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Certificado (PDF)</span>
+            </a>
           </div>
+          
           <div className="course-item">
-            <span className="course-name">Técnico em Desenvolvimento de Sistemas</span>
-            <span className="course-year">2022 (ETEC)</span>
+            <div className="course-info">
+              <span className="course-name">Compras Públicas - Planejamento e procedimentos</span>
+              <span className="course-year">2022 (IBEGESP)</span>
+            </div>
+            <a 
+              href={CERTIFICADOIBGESPCOMP_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Certificado (PDF)</span>
+            </a>
           </div>
+
           <div className="course-item">
-            <span className="course-name">Compras Públicas - Planejamento e procedimentos</span>
-            <span className="course-year">2022 (IBEGESP)</span>
+            <div className="course-info">
+              <span className="course-name">AUDESP FASE IV</span>
+              <span className="course-year">2018 (IBEGESP)</span>
+            </div>
           </div>
+
           <div className="course-item">
-            <span className="course-name">AUDESP FASE IV</span>
-            <span className="course-year">2018 (IBEGESP)</span>
-          </div>
-          <div className="course-item">
-            <span className="course-name">Sistema de Registro de Preço</span>
-            <span className="course-year">2018</span>
+            <div className="course-info">
+              <span className="course-name">Sistema de Registro de Preço</span>
+              <span className="course-year">2018</span>
+            </div>
+            <a 
+              href={CERTIFICADOSRP_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Certificado (PDF)</span>
+            </a>
           </div>
         </div>
       </section>
@@ -359,11 +469,9 @@ export default function Main() {
         </div>
       </section>
 
-      
-
       <footer className="footer">
         <p>© 2024 Lucas Martins Coelho - Todos os direitos reservados</p>
-        <p>Desenvolvido com React.js | Atualizado em Dezembro 2024</p>
+        <p>Desenvolvido com React.js | Atualizado em Dezembro 2026</p>
       </footer>
     </main>
   );

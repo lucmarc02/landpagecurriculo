@@ -1,67 +1,51 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const fileInputRef = useRef(null);
+  // Link do seu currículo no Google Drive
+  const CURRICULO_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1kosnp7jnjIvQz49BmU4G0K8d26dCJhAA/view?usp=sharing";
 
-  // Função para lidar com o upload de arquivos
-  const handleFileUpload = (event) => {
-    const files = Array.from(event.target.files);
+  // Estado para detectar se está em mobile
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detecta se está em mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
     
-    // Verificar se há espaço para novos arquivos
-    if (uploadedFiles.length + files.length > 5) {
-      alert('Você pode anexar no máximo 5 arquivos');
-      return;
-    }
-
-    // Processar cada arquivo
-    const newFiles = files.map(file => ({
-      id: Date.now() + Math.random(),
-      name: file.name,
-      size: file.size,
-      type: file.type,
-      url: URL.createObjectURL(file),
-      file: file
-    }));
-
-    // Adicionar novos arquivos à lista existente
-    setUploadedFiles(prev => [...prev, ...newFiles]);
+    // Verificar no carregamento
+    checkMobile();
     
-    // Limpar o input de arquivo
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
-  // Função para remover um arquivo
-  const handleRemoveFile = (id) => {
-    // Revogar a URL do objeto para evitar vazamentos de memória
-    const fileToRemove = uploadedFiles.find(file => file.id === id);
-    if (fileToRemove && fileToRemove.url) {
-      URL.revokeObjectURL(fileToRemove.url);
-    }
+    // Adicionar listener para redimensionamento
+    window.addEventListener('resize', checkMobile);
     
-    // Remover o arquivo da lista
-    setUploadedFiles(prev => prev.filter(file => file.id !== id));
-  };
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-  // Função para formatar o tamanho do arquivo
-  const formatFileSize = (bytes) => {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  };
+  // Caminhos das imagens - SOLUÇÃO SIMPLIFICADA
+  // Para funcionar tanto em dev quanto no GitHub Pages
+  const perfilImg = window.location.hostname === 'localhost' 
+    ? '/imagens/perfil.png'  // Em desenvolvimento local
+    : '/landpagecurriculo/imagens/perfil.png'; // No GitHub Pages
+  
+  const bannerImg = window.location.hostname === 'localhost'
+    ? '/imagens/banner.png'  // Em desenvolvimento local
+    : '/landpagecurriculo/imagens/banner.png'; // No GitHub Pages
 
-  // Função para obter ícone baseado no tipo de arquivo
-  const getFileIcon = (fileType) => {
-    if (fileType.includes('pdf')) return '📄';
-    if (fileType.includes('word') || fileType.includes('document')) return '📝';
-    if (fileType.includes('image')) return '🖼️';
-    if (fileType.includes('zip') || fileType.includes('compressed')) return '📦';
-    if (fileType.includes('text')) return '📃';
-    return '📎';
+  // Função para lidar com erros nas imagens
+  const handleImageError = (e, isBanner = false) => {
+    console.error('Erro ao carregar imagem:', isBanner ? 'banner' : 'perfil');
+    e.target.style.backgroundColor = '#1a1a2e';
+    e.target.style.display = 'flex';
+    e.target.style.alignItems = 'center';
+    e.target.style.justifyContent = 'center';
+    
+    if (isBanner) {
+      e.target.innerHTML = '<span style="color: #61dafb; font-size: 1.2rem; font-weight: bold;">Banner Tecnologia</span>';
+    } else {
+      e.target.innerHTML = '<span style="color: #61dafb; font-size: 1.5rem;">👤</span>';
+    }
   };
 
   return (
@@ -71,21 +55,23 @@ export default function Navbar() {
           {/* Banner de fundo */}
           <div className="nav-banner">
             <img 
-              src="./imagens/banner.png" 
+              src={bannerImg}
               alt="Banner Tecnologia e Dados" 
               className="banner-image"
+              onError={(e) => handleImageError(e, true)}
             />
             <div className="banner-overlay"></div>
           </div>
           
-          {/* Conteúdo do perfil sobre o banner - ESTRUTURA OTIMIZADA PARA MOBILE */}
-          <div className="nav-profile-overlay">
-            <div className="nav-profile">
+          {/* Conteúdo do perfil sobre o banner - Estrutura responsiva */}
+          <div className={`nav-profile-overlay ${isMobile ? 'mobile-layout' : ''}`}>
+            <div className={`nav-profile ${isMobile ? 'mobile-profile' : ''}`}>
               <div className="profile-image-wrapper">
                 <img
-                  src="./imagens/perfil.png"
+                  src={perfilImg}
                   className="nav-icon"
                   alt="Foto de perfil Lucas Martins"
+                  onError={(e) => handleImageError(e, false)}
                 />
               </div>
               <div className="nav-text">
@@ -97,93 +83,37 @@ export default function Navbar() {
           </div>
         </div>
         
-        <div className="nav-contacts">
+        <div className={`nav-contacts ${isMobile ? 'mobile-contacts' : ''}`}>
           <a href="tel:+5562986343341" className="nav-contact-link">
-            📱 (62) 98634-3341
+            <span className="contact-icon">📱</span>
+            <span className="contact-text">(62) 98634-3341</span>
           </a>
           <a href="mailto:danilucascoe@gmail.com" className="nav-contact-link">
-            ✉️ danilucascoe@gmail.com
+            <span className="contact-icon">✉️</span>
+            <span className="contact-text">danilucascoe@gmail.com</span>
           </a>
+          
+          {/* LINK DO CURRÍCULO NO GOOGLE DRIVE */}
+          <a 
+            href={CURRICULO_GOOGLE_DRIVE_URL} 
+            className="nav-contact-link curriculo-link"
+            target="_blank" 
+            rel="noopener noreferrer"
+            title="Visualizar currículo no Google Drive"
+          >
+            <span className="contact-icon">📄</span>
+            <span className="contact-text">Currículo (PDF)</span>
+          </a>
+          
           <a href="https://www.linkedin.com/in/lucas-martins-29a06a72/" 
              className="nav-contact-link" 
              target="_blank" 
              rel="noopener noreferrer">
-            💼 LinkedIn
+            <span className="contact-icon">💼</span>
+            <span className="contact-text">LinkedIn</span>
           </a>
-          <a href="https://github.com/lucmarc02" 
-             className="nav-contact-link" 
-             target="_blank" 
-             rel="noopener noreferrer">
-            🔗 GitHub
-          </a>
-
-          {/* Upload de Arquivos */}
-          <div className="file-upload-container">
-            <input
-              type="file"
-              id="file-upload"
-              ref={fileInputRef}
-              onChange={handleFileUpload}
-              multiple
-              style={{ display: 'none' }}
-            />
-            <label htmlFor="file-upload" className="file-upload-button">
-              <span className="file-upload-icon">📎</span>
-              Anexar Arquivos
-            </label>
-            <span className="file-upload-hint">(Máx: 5 arquivos)</span>
-          </div>
+          
         </div>
-
-        {/* Lista de Arquivos Anexados */}
-        {uploadedFiles.length > 0 && (
-          <div className="uploaded-files-container">
-            <h4 className="uploaded-files-title">Arquivos Anexados ({uploadedFiles.length}/5)</h4>
-            <div className="uploaded-files-list">
-              {uploadedFiles.map(file => (
-                <div key={file.id} className="uploaded-file-item">
-                  <div className="file-info">
-                    <span className="file-icon">{getFileIcon(file.type)}</span>
-                    <div className="file-details">
-                      <span className="file-name">{file.name}</span>
-                      <span className="file-size">{formatFileSize(file.size)}</span>
-                    </div>
-                  </div>
-                  <div className="file-actions">
-                    <a 
-                      href={file.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="file-view-link"
-                      title="Visualizar arquivo"
-                    >
-                      👁️
-                    </a>
-                    <button 
-                      onClick={() => handleRemoveFile(file.id)}
-                      className="file-remove-button"
-                      title="Remover arquivo"
-                    >
-                      ❌
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="uploaded-files-footer">
-              <span className="files-total-size">
-                Total: {formatFileSize(uploadedFiles.reduce((total, file) => total + file.size, 0))}
-              </span>
-              <button 
-                onClick={() => setUploadedFiles([])}
-                className="clear-all-files-button"
-                disabled={uploadedFiles.length === 0}
-              >
-                Limpar Todos
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );

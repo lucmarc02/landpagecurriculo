@@ -6,6 +6,7 @@
   padding: 0;
 }
 
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -46,6 +47,11 @@ body {
   background: rgba(97, 218, 251, 0.2);
   border-color: #61dafb;
   transform: translateY(-2px);
+}
+
+.github-link {
+  text-decoration: none;
+  color: #61dafb
 }
 
 /* BANNER E PERFIL - CORREÇÃO PARA MOBILE */
@@ -927,5 +933,758 @@ body {
   
   .nav-name {
     font-size: 1.1rem;
+  }
+}
+
+/* Adicione após o .file-view-link */
+
+.file-download-button {
+  background: rgba(86, 207, 225, 0.15);
+  color: #56cfe1;
+  border: 1px solid rgba(86, 207, 225, 0.3);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.file-download-button:hover {
+  background: rgba(86, 207, 225, 0.25);
+  border-color: #56cfe1;
+  transform: scale(1.1);
+}
+
+/* Atualize o .file-actions para ter espaço para 3 botões */
+.file-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Estilo especial para o link do currículo */
+.certificado-link {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  color: white !important;
+  border-radius: 10px;
+  padding: 2px 4px !important;
+  font-weight: 300;
+  border: none;
+  box-shadow: 0 2px 6px rgba(66, 133, 244, 0.3);
+  transition: all 0.3s ease;
+}
+
+.curriculo-link  {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  color: white !important;
+  border-radius: 20px;
+  padding: 8px 16px !important;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+  transition: all 0.3s ease;
+}
+
+.curriculo-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+  background: linear-gradient(135deg, #3367d6 0%, #2e8b57 100%);
+}
+
+/* Para o link de download */
+.curriculo-download {
+  background: linear-gradient(135deg, #ea4335 0%, #fbbc05 100%);
+  color: white !important;
+  border-radius: 20px;
+  padding: 8px 16px !important;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.curriculo-download:hover {
+  background: linear-gradient(135deg, #d23d31 0%, #e0a800 100%);
+}
+
+
+/* ============ ESTILOS RESPONSIVOS ADICIONAIS ============ */
+
+/* Para mobile, ajustar layout do perfil */
+.mobile-layout .nav-profile {
+  flex-direction: column !important;
+  text-align: center;
+  gap: 15px !important;
+  padding: 15px 0;
+}
+
+.mobile-layout .profile-image-wrapper {
+  margin: 0 auto;
+}
+
+.mobile-layout .nav-text {
+  min-width: auto !important;
+  text-align: center;
+}
+
+/* Contatos em mobile */
+.mobile-contacts {
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+.mobile-contacts .nav-contact-link {
+  justify-content: center;
+  width: 100%;
+  padding: 10px 15px !important;
+  margin-bottom: 5px;
+}
+
+/* Ajustes para ícones e texto em mobile */
+.contact-icon {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.contact-text {
+  font-size: 0.9rem;
+}
+
+/* Mobile muito pequeno - ajustes extras */
+@media (max-width: 480px) {
+  .nav-profile-overlay {
+    padding: 10px 15px !important;
+    background: rgba(26, 26, 46, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+  
+  .nav-profile {
+    gap: 12px !important;
+  }
+  
+  .nav-icon {
+    width: 80px !important;
+    height: 80px !important;
+    border-width: 2px !important;
+  }
+  
+  .nav-name {
+    font-size: 1.3rem !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .nav-title {
+    font-size: 1rem !important;
+    margin-bottom: 3px !important;
+  }
+  
+  .nav-location {
+    font-size: 0.9rem !important;
+  }
+  
+  .nav-contacts {
+    padding: 12px !important;
+    gap: 8px !important;
+  }
+  
+  .nav-contact-link {
+    font-size: 0.85rem !important;
+    padding: 8px 12px !important;
+  }
+  
+  .curriculo-link {
+    padding: 10px 15px !important;
+    font-size: 0.9rem !important;
+  }
+  .certificado-link {
+    padding: 10px 15px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .nav-profile-overlay {
+    padding: 15px 20px !important;
+  }
+  
+  .nav-profile {
+    gap: 20px !important;
+  }
+  
+  .nav-icon {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  
+  .nav-name {
+    font-size: 1.5rem !important;
+  }
+  
+  .nav-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .nav-location {
+    font-size: 0.95rem !important;
+  }
+  
+  .nav-contacts {
+    padding: 15px !important;
+    gap: 10px !important;
+  }
+  
+  .nav-contact-link {
+    font-size: 0.88rem !important;
+  }
+}
+
+/* Desktop pequeno */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-banner {
+    height: 160px !important;
+  }
+  
+  .nav-icon {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .nav-name {
+    font-size: 1.7rem !important;
+  }
+  
+  .nav-title {
+    font-size: 1.15rem !important;
+  }
+}
+
+/* Para telas muito pequenas (iPhone SE, Galaxy Fold, etc) */
+@media (max-width: 360px) {
+  .nav-banner {
+    height: 90px !important;
+  }
+  
+  .nav-profile-overlay {
+    padding: 8px 10px !important;
+  }
+  
+  .nav-icon {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  
+  .nav-name {
+    font-size: 1.2rem !important;
+  }
+  
+  .nav-title {
+    font-size: 0.9rem !important;
+  }
+  
+  .nav-location {
+    font-size: 0.8rem !important;
+  }
+  
+  .nav-contact-link {
+    font-size: 0.8rem !important;
+    padding: 7px 10px !important;
+  }
+  
+  .contact-icon {
+    font-size: 0.9rem;
+  }
+  
+  .contact-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* Orientação landscape em mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .nav-banner {
+    height: 100px !important;
+  }
+  
+  .nav-profile-overlay {
+    padding: 10px 15px !important;
+  }
+  
+  .nav-icon {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  
+  .nav-name {
+    font-size: 1.1rem !important;
+  }
+  
+  .nav-title {
+    font-size: 0.9rem !important;
+  }
+  
+  .nav-location {
+    font-size: 0.8rem !important;
+  }
+  
+  .nav-contacts {
+    padding: 10px !important;
+  }
+  
+  .nav-contact-link {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Ajuste para o banner quando a imagem não carrega */
+.banner-image:not([src]),
+.banner-image[src=""],
+.banner-image[src*="undefined"] {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #61dafb !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+}
+
+.nav-icon:not([src]),
+.nav-icon[src=""],
+.nav-icon[src*="undefined"] {
+  background: rgba(33, 34, 42, 0.9) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #61dafb !important;
+  font-size: 1.5rem !important;
+}
+
+/* Melhorar a visibilidade do texto sobre o banner */
+.nav-text {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Ajuste para o curriculo-link em mobile */
+@media (max-width: 768px) {
+  .curriculo-link {
+    background: linear-gradient(135deg, #4285f4 0%, #34a853 100%) !important;
+    color: white !important;
+    border-radius: 20px !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 5px 0 !important;
+  }
+
+  
+  .curriculo-link:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4) !important;
+    background: linear-gradient(135deg, #3367d6 0%, #2e8b57 100%) !important;
+  }
+
+  
+  
+}
+
+
+/* ============ ESTILOS PARA LINKS DE CERTIFICADOS ============ */
+
+/* Estilos para os cards de educação */
+.education-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* Estilos para os cards de cursos */
+.course-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: rgba(97, 218, 251, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(97, 218, 251, 0.1);
+  transition: all 0.3s ease;
+  gap: 10px;
+}
+
+.course-info {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.course-name {
+  color: #deebf8;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.course-year {
+  color: #61dafb;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Estilo dos links de certificado */
+.certificado-link {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  color: white !important;
+  border-radius: 20px;
+  padding: 8px 16px !important;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.certificado-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+  background: linear-gradient(135deg, #3367d6 0%, #2e8b57 100%);
+}
+
+/* ============ RESPONSIVIDADE PARA LINKS DE CERTIFICADOS ============ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .education-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .course-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .course-info {
+    min-width: 100%;
+  }
+  
+  .certificado-link {
+    align-self: flex-start;
+    padding: 10px 20px !important;
+    font-size: 0.95rem;
+  }
+  
+  .course-name {
+    font-size: 1.05rem;
+  }
+  
+  .education-course {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .education-item {
+    padding: 12px;
+  }
+  
+  .education-details {
+    gap: 8px;
+  }
+  
+  .course-item {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .certificado-link {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px !important;
+  }
+  
+  .contact-icon {
+    font-size: 1.1rem;
+  }
+  
+  .contact-text {
+    font-size: 0.95rem;
+  }
+  
+  .course-name {
+    font-size: 1rem;
+  }
+  
+  .course-year {
+    font-size: 0.85rem;
+  }
+  
+  .education-institution {
+    font-size: 0.9rem;
+  }
+  
+  .education-year {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile muito pequeno */
+@media (max-width: 360px) {
+  .certificado-link {
+    padding: 10px 15px !important;
+    font-size: 0.9rem;
+  }
+  
+  .contact-icon {
+    font-size: 1rem;
+  }
+  
+  .contact-text {
+    font-size: 0.9rem;
+  }
+  
+  .course-name {
+    font-size: 0.95rem;
+  }
+  
+  .course-year {
+    font-size: 0.8rem;
+  }
+  
+  .education-course {
+    font-size: 1rem;
+  }
+}
+
+/* Ajuste para quando não há link de certificado */
+.course-item:has(a:not([href])) {
+  align-items: flex-start;
+}
+
+/* Garantir que o ano fique alinhado à direita no desktop */
+@media (min-width: 769px) {
+  .course-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .course-name {
+    flex: 1;
+  }
+  
+  .course-year {
+    margin-left: 20px;
+  }
+  
+  .education-details {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Education - CORREÇÃO DOS LINKS */
+.education-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10px;
+  gap: 12px;
+}
+
+.education-institution {
+  font-weight: 500;
+  color: #61dafb;
+  background: rgba(97, 218, 251, 0.1);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.education-year {
+  color: #deebf8;
+  opacity: 0.9;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Estilo específico para os links de certificado em educação */
+.education-details .certificado-link {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  color: white !important;
+  border-radius: 20px;
+  padding: 8px 16px !important;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-left: auto;
+  order: 3; /* Garante que fique no final */
+}
+
+.education-details .certificado-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+  background: linear-gradient(135deg, #3367d6 0%, #2e8b57 100%);
+}
+
+/* Para garantir que o link não quebre em desktop */
+.education-details .certificado-link {
+  white-space: nowrap;
+}
+
+/* ============ RESPONSIVIDADE ESPECÍFICA PARA FORMAÇÃO ACADÊMICA ============ */
+
+/* Desktop grande */
+@media (min-width: 769px) {
+  .education-details {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .education-institution {
+    justify-self: start;
+  }
+  
+  .education-year {
+    justify-self: start;
+  }
+  
+  .education-details .certificado-link {
+    justify-self: end;
+    margin-left: 0;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .education-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  
+  .education-institution, 
+  .education-year {
+    justify-self: start;
+  }
+  
+  .education-details .certificado-link {
+    justify-self: start;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  
+  .education-course {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .education-item {
+    padding: 15px;
+  }
+  
+  .education-details {
+    gap: 8px;
+  }
+  
+  .education-details .certificado-link {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 15px !important;
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+  
+  .education-institution {
+    font-size: 0.85rem;
+    padding: 3px 8px;
+  }
+  
+  .education-year {
+    font-size: 0.85rem;
+  }
+  
+  .contact-icon {
+    font-size: 1rem;
+  }
+  
+  .contact-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile muito pequeno */
+@media (max-width: 360px) {
+  .education-details .certificado-link {
+    padding: 8px 12px !important;
+    font-size: 0.85rem;
+  }
+  
+  .education-course {
+    font-size: 1rem;
+  }
+  
+  .education-institution {
+    font-size: 0.8rem;
+  }
+  
+  .education-year {
+    font-size: 0.8rem;
+  }
+}
+
+/* Para quando houver apenas instituição e ano (sem link) */
+.education-details:has(.certificado-link:not([href])) {
+  grid-template-columns: auto auto;
+}
+
+.education-details:has(.certificado-link:not([href])) .education-institution,
+.education-details:has(.certificado-link:not([href])) .education-year {
+  grid-column: span 1;
+}
+
+/* Ajuste para layout em linha em desktop */
+@media (min-width: 769px) {
+  .education-details:not(:has(.certificado-link:not([href]))) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .education-details:not(:has(.certificado-link:not([href]))) .certificado-link {
+    margin-left: auto;
   }
 }

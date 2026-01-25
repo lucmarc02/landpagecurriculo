@@ -7,6 +7,7 @@ export default function Main() {
   const CERTIFICADOGENEXUS_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/10qZy2OVo7YjMPRLJVUOgFubkSKbi9Axe/view?usp=sharing";
   const CERTIFICADOSRP_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1jVIfeaiohxO_Jrah0iqWzv9QSAeKOiOs/view?usp=sharing";
   const CERTIFICADOIBGESPCOMP_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1AIwqiS57TvclkYOTeHglZ6MnXv7M8K0d/view?usp=sharing";
+  const CERTIFICADOPYTHONDATASCIENCI_GOOGLE_DRIVE_URL = "https://drive.google.com/file/d/1GUwauQkdglbu7Ubb4D1L5C-8wh9YuzA-/view?usp=sharing";
   
   return (
     <main className="main-content">
@@ -266,6 +267,23 @@ export default function Main() {
             </div>
             <a 
               href={CERTIFICADOIBGESPCOMP_GOOGLE_DRIVE_URL} 
+              className="certificado-link"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Visualizar certificado no Google Drive"
+            >
+              <span className="contact-icon">📄</span>
+              <span className="contact-text">Certificado (PDF)</span>
+            </a>
+          </div>
+
+          <div className="course-item">
+            <div className="course-info">
+              <span className="course-name">Python para Data Science e Machine Learning</span>
+              <span className="course-year">2021 </span>
+            </div>
+            <a 
+              href={CERTIFICADOPYTHONDATASCIENCI_GOOGLE_DRIVE_URL} 
               className="certificado-link"
               target="_blank" 
               rel="noopener noreferrer"
